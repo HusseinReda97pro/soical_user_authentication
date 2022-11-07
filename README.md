@@ -35,8 +35,8 @@ In this Package there is three level of abstraction:
 
 For Facebook:
 first step you need to complete create Facebook app and link it to your project for Android, and IOS,
-as this Package depend on [flutter_facebook_auth]:https://pub.dev/packages/flutter_facebook_auth
-and there is [documentation]:https://facebook.meedu.app/docs/5.x.x/intro for the process.
+as this Package depend on [flutter_facebook_auth](https://pub.dev/packages/flutter_facebook_auth)
+and there is [documentation](https://facebook.meedu.app/docs/5.x.x/intro) for the process.
 
 
 TODO: List prerequisites and provide or point to information on how to

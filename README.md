@@ -26,7 +26,7 @@ In this Package there is three level of abstraction:
 1. You can use Ui Widgets:
 
 
-![image](https://user-images.githubusercontent.com/47584580/200312074-fedc6417-61a4-41a6-a764-eeb8e8e8da77.png)
+
 
 2. you can use state mangment Solution used in this pacged wich is Provider and use functions and current user and loading state form it.
 3. You Repostory that have logic for Authentication
@@ -47,17 +47,88 @@ first step you need to complete create Google app on [Cloud Console](https://con
 
 ## Usage
 
-first import this package like this:
+add package:
 
 ````
-```
 soical_user_authentication:
     git:  
       url: https://github.com/HusseinReda97pro/soical_user_authentication
-```
+````
+
+import package:
+
+````
+import 'package:soical_user_authentication/soical_user_authentication.dart';
 ````
 
 
+For UI 
+
+standerd UI 
+
+![image](https://user-images.githubusercontent.com/47584580/200312074-fedc6417-61a4-41a6-a764-eeb8e8e8da77.png)
+
+````
+  const SigninFacebookButton() // has optional parameter text: for button text
+  const SigninGoogleButton() //  has optional parameter text: for button text
+  const LogoutButton() // has optional parameter text: for button text,colors backgroundColor, textColor, onPressed Function if you need use different logic.
+ ````
+ 
+how it works:
+    when using  Signin button  you need to use SoicalUserProvider also.
+    when pressed on it the isLoading value on provider is turn to true, and currentUser will be the User data that got if user accept and null otherwise then isLoading     be false again.
+ 
+ you need to wrap MaterialApp with SoicalUserProvider
+ 
+ 
+ ```
+ MultiProvider(
+      providers: [
+        ChangeNotifierProvider<SoicalUserProvider>(
+          create: (_) => SoicalUserProvider(
+            soicalUserRepository: SoicalUserRepository(),
+          ),
+        ),
+      ],
+      child: MaterialApp(
+      .......
+      ),);
+ ```
+ 
+ 
+````
+SoicalUserProvider.of(context).currentSoicalUser
+SoicalUserProvider.of(context).isLoading
+
+SoicalUserProvider.of(context).signInWithFacebook()
+SoicalUserProvider.of(context).signInWithGoogle()
+SoicalUserProvider.of(context).logout()
+
+````
+    
+    
+And this is the data of user 
+ ````
+  String id;
+  String name;
+  String email;
+  String? imageURL;
+  UserProvider provider;
+ ````
+ 
+ UserProvider values
+ 
+ ````
+  UserProvider.google 
+   UserProvider.facebook 
+ ````
+  
+  
+  
+In case you prefer to use another UI or State Management Solution
+
+you can 
+   
 ## Additional information
 
 TODO: Tell users more about the package: where to find more information, how to

@@ -120,7 +120,7 @@ And this is the data of user
  
  ````
   UserProvider.google 
-   UserProvider.facebook 
+  UserProvider.facebook 
  ````
   
   

@@ -38,6 +38,9 @@ first step you need to complete create Facebook app and link it to your project 
 as this Package depend on [flutter_facebook_auth](https://pub.dev/packages/flutter_facebook_auth)
 and there is [documentation](https://facebook.meedu.app/docs/5.x.x/intro) for the process.
 
+For Google: 
+first step you need to complete create Google app on [Cloud Console](https://console.cloud.google.com/apis/dashboard) and link it to your project for Android, and IOS, as this Package depend on [google_sign_in](https://pub.dev/packages/google_sign_in).
+
 
 TODO: List prerequisites and provide or point to information on how to
 start using the package.

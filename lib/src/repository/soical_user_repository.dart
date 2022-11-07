@@ -5,7 +5,7 @@ import 'package:soical_user_authentication/src/network_services/networking_servi
 import 'package:soical_user_authentication/src/network_services/status_codes.dart';
 
 class SoicalUserRepository {
-  String graphAPIBaseUrl = 'https://graph.facebook.com/me/permissions';
+  String _graphAPIBaseUrl = 'https://graph.facebook.com/me/permissions';
 
   Future<SoicalUser?> signinWithFacebook() async {
     // AccessToken? accessToken;
@@ -37,11 +37,11 @@ class SoicalUserRepository {
     return user;
   }
 
-  Future<bool> deleteFacebookToken() async {
+  Future<bool> _deleteFacebookToken() async {
     var token = await FacebookAuth.i.accessToken;
     try {
       var response = await NetworkServices.instance.delete(
-          url: graphAPIBaseUrl,
+          url: _graphAPIBaseUrl,
           queryParameters: {"access_token": token?.token ?? ''});
       if (response.data['success'] &&
           response.statusCode == StatusCode.success) {
@@ -52,7 +52,7 @@ class SoicalUserRepository {
   }
 
   Future<void> logoutFromFacebook() async {
-    bool deleteToken = await deleteFacebookToken();
+    bool deleteToken = await _deleteFacebookToken();
     if (deleteToken) {
       await FacebookAuth.i.logOut();
     }

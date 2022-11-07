@@ -15,7 +15,18 @@ this package for login over social media, currently it support login using Faceb
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+you can use this package for
+login user using Facebook
+login user Using Google
+Logout user
+store current user in provider (State management if you use it)
+
+In this Package there is three level of abstraction:
+
+1. You can use Ui Widgets
+image.png
+2. you can use state mangment Solution used in this pacged wich is Provider and use functions and current user and loading state form it.
+3. You Repostory that have logic for Authentication
 
 ## Getting started
 

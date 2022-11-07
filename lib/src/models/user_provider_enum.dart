@@ -9,7 +9,7 @@ extension on UserProvider {
   }
 }
 
-extension on String {
+extension Cast on String {
   toUserProvider() {
     if (this == 'facebook') return UserProvider.facebook;
     if (this == 'google') return UserProvider.google;

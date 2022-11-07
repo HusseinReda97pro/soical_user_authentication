@@ -1,0 +1,1 @@
+enum UserProvider { facebook, google }

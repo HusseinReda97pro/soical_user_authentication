@@ -1,1 +1,1 @@
-enum UserProvider { facebook, google }
+enum UserProvider { facebook, google, emailPassword }

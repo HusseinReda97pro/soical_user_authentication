@@ -127,10 +127,13 @@ And this is the data of user
   
 In case you prefer to use another UI or State Management Solution
 
-you can 
-   
-## Additional information
+you can use logic direct from repository from SoicalUserRepository()
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+````
+Future<SoicalUser?> signinWithFacebook()
+Future<SoicalUser?> signinWithGoogle() 
+// hint in case failed authentication or user declaint function will return null
+Future<void> logoutFromFacebook()
+Future<void> logoutFromGoogle()
+````
+

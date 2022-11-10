@@ -1,6 +1,6 @@
 enum UserProvider { facebook, google, emailPassword }
 
-extension on UserProvider {
+extension CastText on UserProvider {
   String toText() {
     if (this == UserProvider.facebook) return 'facebook';
     if (this == UserProvider.google) return 'google';

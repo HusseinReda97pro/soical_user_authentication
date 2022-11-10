@@ -5,7 +5,9 @@ import 'package:soical_user_authentication/src/provider/soical_user_provider.dar
 class SigninFacebookButton extends StatefulWidget {
   final String? text;
   final Function? onPressed;
-  const SigninFacebookButton({this.text, this.onPressed, Key? key})
+  final SoicalUserProvider? provider;
+  const SigninFacebookButton(
+      {this.text, this.provider, this.onPressed, Key? key})
       : super(key: key);
 
   @override
@@ -21,10 +23,15 @@ class _SigninFacebookButtonState extends State<SigninFacebookButton> {
         borderRadius: BorderRadius.circular(6.0),
       ),
       text: widget.text,
-      onPressed: widget.onPressed ??
-          () async {
-            SoicalUserProvider.of(context).signInWithFacebook();
-          },
+      onPressed: widget.onPressed != null
+          ? widget.onPressed!()
+          : widget.provider != null
+              ? () {
+                  widget.provider!.signInWithFacebook();
+                }
+              : () async {
+                  SoicalUserProvider.of(context).signInWithFacebook();
+                },
     );
   }
 }

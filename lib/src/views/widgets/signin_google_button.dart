@@ -4,7 +4,9 @@ import 'package:soical_user_authentication/src/provider/soical_user_provider.dar
 
 class SigninGoogleButton extends StatefulWidget {
   final String? text;
-  const SigninGoogleButton({this.text, Key? key}) : super(key: key);
+  final Function? onPressed;
+  const SigninGoogleButton({this.text, this.onPressed, Key? key})
+      : super(key: key);
 
   @override
   State<SigninGoogleButton> createState() => _SigninGoogleButtonState();
@@ -19,9 +21,10 @@ class _SigninGoogleButtonState extends State<SigninGoogleButton> {
         borderRadius: BorderRadius.circular(6.0),
       ),
       text: widget.text,
-      onPressed: () async {
-        SoicalUserProvider.of(context).signInWithGoogle();
-      },
+      onPressed: widget.onPressed ??
+          () async {
+            SoicalUserProvider.of(context).signInWithGoogle();
+          },
     );
   }
 }

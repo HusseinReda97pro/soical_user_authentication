@@ -1,7 +1,11 @@
 name: soical_user_authentication
 description: A new Flutter package project.
-version: 0.0.2
+version: 0.0.3
 homepage:
+
+
+publish_to: none
+
 
 environment:
   sdk: ">=2.17.6 <3.0.0"

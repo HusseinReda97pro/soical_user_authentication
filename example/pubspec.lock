@@ -56,7 +56,7 @@ packages:
       name: facebook_auth_desktop
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -89,7 +89,7 @@ packages:
       name: flutter_facebook_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.4"
+    version: "5.0.6"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
@@ -397,10 +397,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "22a80aaf13ea72ce84c81e90747886e6fea0d31b"
+      resolved-ref: "904ac5d48edeed6dc3b31803d44c3fa955e75c88"
       url: "https://github.com/HusseinReda97pro/soical_user_authentication"
     source: git
-    version: "0.0.2"
+    version: "0.0.3"
   source_span:
     dependency: transitive
     description:
@@ -463,7 +463,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.1"
   xdg_directories:
     dependency: transitive
     description:

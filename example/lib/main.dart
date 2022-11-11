@@ -65,6 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     : const SizedBox.shrink(),
                 Text(
                     'Current Soical User: ${SoicalUserProvider.of(context).currentSoicalUser?.name.toString()}'),
+                Text(
+                    'Error: ${SoicalUserProvider.of(context).error.toString()}'),
                 const SigninFacebookButton(),
                 const SigninGoogleButton(),
                 const LogoutButton()

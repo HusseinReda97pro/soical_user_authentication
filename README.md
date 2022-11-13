@@ -95,7 +95,7 @@ how it works:
  ```
  
 when pressed on any button  the isLoading value on provider is turned to true, 
-and currentUser will be the User data that got if user accepts and null otherwise then isLoading be false again.
+and currentSoicalUser will be the User data that got if user accepts and null otherwise then isLoading be false again.
 and error will has value:
 - for Facebook: User has cancelled login with facebook
 - for Google: User has cancelled login with Google

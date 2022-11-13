@@ -104,6 +104,7 @@ and error will has value:
 ````
 SoicalUserProvider.of(context).currentSoicalUser 
 SoicalUserProvider.of(context).isLoading
+SoicalUserProvider.of(context).error
 
 SoicalUserProvider.of(context).signInWithFacebook()
 SoicalUserProvider.of(context).signInWithGoogle()

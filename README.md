@@ -151,9 +151,10 @@ you can use logic directly  from repository from SoicalUserRepository()
 
 ````
 SoicalUserRepository soicalUserRepository = SoicalUserRepository();
-SoicalUser? soicalUser = await soicalUserRepository.signinWithFacebook();
-SoicalUser? soicalUser = await soicalUserRepository.signinWithGoogle();
-// hint in case failed authentication or user declaint function will return null
+UserResponse userResponse = await soicalUserRepository.signinWithFacebook();
+UserResponse userResponse = await soicalUserRepository.signinWithGoogle();
+// hint in case failed authentication or user declaint UserResponse.user will be null 
+// UserResponse.error will has value.
 soicalUserRepository.logoutFromFacebook()
 soicalUserRepository.logoutFromGoogle()
 ````

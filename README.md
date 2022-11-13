@@ -23,16 +23,12 @@ logout user from google
 
 store current user in provider (State management if you use it)
 
-### In this Package, there are two ways to use it:
+### In this Package, there are three ways to use it:
 
 
-1. You can use Ui Widgets:
-
-
-
-
-2. you can use state mangment Solution used in this pacged wich is Provider and use functions and current user and loading state form it.
-3. You Repostory that have logic for Authentication
+1. You can use Ui Widgets.
+2. you can use state mangment Solution used in this pacged wich is Provider and use functions and current user, loading state,and error form it.
+3. You can use repostory that have the logic for social authentication
 
 ## Getting started
 
@@ -72,17 +68,17 @@ standerd UI
 ![image](https://user-images.githubusercontent.com/47584580/200312074-fedc6417-61a4-41a6-a764-eeb8e8e8da77.png)
 
 ````
-  const SigninFacebookButton() // has optional parameter text: for button text
-  const SigninGoogleButton() //  has optional parameter text: for button text
-  const LogoutButton() // has optional parameter text: for button text,colors backgroundColor, textColor, onPressed Function if you need use different logic.
+  const SigninFacebookButton() // has optional parameter text: for button text, onPressed function 
+  const SigninGoogleButton() //  has optional parameter text: for button text, onPressedr function
+  const LogoutButton() // has optional parameter text: for button text,colors backgroundColor, textColor, onPressed function 
+  hint: you must pass your onPressed function in case you will not use provider.
  ````
  
 how it works:
-    when using  Signin button  you need to use SoicalUserProvider also.
-    when pressed on it the isLoading value on provider is turn to true, and currentUser will be the User data that got if user accept and null otherwise then isLoading     be false again.
+   when using Signin button you need to use SoicalUserProvider also.
+   
  
- you need to wrap MaterialApp with SoicalUserProvider
- 
+### you need to wrap MaterialApp with SoicalUserProvider 
  
  ```
  MultiProvider(
@@ -98,9 +94,15 @@ how it works:
       ),);
  ```
  
- 
+when pressed on any button  the isLoading value on provider is turned to true, 
+and currentUser will be the User data that got if user accepts and null otherwise then isLoading be false again.
+and error will has value:
+- for Facebook: User has cancelled login with facebook
+- for Google: User has cancelled login with Google
+
+
 ````
-SoicalUserProvider.of(context).currentSoicalUser
+SoicalUserProvider.of(context).currentSoicalUser 
 SoicalUserProvider.of(context).isLoading
 
 SoicalUserProvider.of(context).signInWithFacebook()
@@ -108,35 +110,48 @@ SoicalUserProvider.of(context).signInWithGoogle()
 SoicalUserProvider.of(context).logout()
 
 ````
-    
-    
+#### logout()
+logout form facebook or google and turn currentSoicalUser to null.
+
+### Soical User Data
 And this is the data of user 
  ````
-  String id;
+  String id; // Soical id 
   String name;
   String email;
   String? imageURL;
   UserProvider provider;
  ````
  
- UserProvider values
+#### User Provider values
  
  ````
   UserProvider.google 
   UserProvider.facebook 
+  UserProvider.emailPassword
  ````
-  
-  
-  
-In case you prefer to use another UI or State Management Solution
+  UserProvider enum has it's function to cast from and to string
+  toText()
+      UserProvider.google  >> "google"
+      UserProvider.facebook  >> "facebook"
+      UserProvider.emailPassword  >> "emailPassword"
+  toUserProvider()
+      "facebook".toUserProvider() >> UserProvider.facebook
+      "google".toUserProvider() >> UserProvider.google
+      "emailPassword".toUserProvider() >> UserProvider.emailPassword
 
-you can use logic direct from repository from SoicalUserRepository()
+ -> Hint defult value is emailPassword if is no matched case.
+ 
+## In case you prefer to use another UI or State Management Solution
+
+you can use logic directly  from repository from SoicalUserRepository()
 
 ````
-Future<SoicalUser?> signinWithFacebook()
-Future<SoicalUser?> signinWithGoogle() 
+SoicalUserRepository soicalUserRepository = SoicalUserRepository();
+SoicalUser? soicalUser = await soicalUserRepository.signinWithFacebook();
+SoicalUser? soicalUser = await soicalUserRepository.signinWithGoogle();
 // hint in case failed authentication or user declaint function will return null
-Future<void> logoutFromFacebook()
-Future<void> logoutFromGoogle()
+soicalUserRepository.logoutFromFacebook()
+soicalUserRepository.logoutFromGoogle()
 ````
 

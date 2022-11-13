@@ -18,10 +18,13 @@ this package for login over social media, currently it support login using Faceb
 you can use this package for
 login user using Facebook
 login user Using Google
-Logout user
+logout user from facebook
+logout user from google
+
 store current user in provider (State management if you use it)
 
-In this Package there is three level of abstraction:
+#In this Package, there are two ways to use it:
+
 
 1. You can use Ui Widgets:
 

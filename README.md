@@ -23,7 +23,7 @@ logout user from google
 
 store current user in provider (State management if you use it)
 
-#In this Package, there are two ways to use it:
+### In this Package, there are two ways to use it:
 
 
 1. You can use Ui Widgets:

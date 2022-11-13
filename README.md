@@ -130,7 +130,9 @@ And this is the data of user
   UserProvider.facebook 
   UserProvider.emailPassword
  ````
+ 
   UserProvider enum has it's function to cast from and to string
+  ```
   toText()
       UserProvider.google  >> "google"
       UserProvider.facebook  >> "facebook"
@@ -139,6 +141,7 @@ And this is the data of user
       "facebook".toUserProvider() >> UserProvider.facebook
       "google".toUserProvider() >> UserProvider.google
       "emailPassword".toUserProvider() >> UserProvider.emailPassword
+  ```
 
  -> Hint defult value is emailPassword if is no matched case.
  
